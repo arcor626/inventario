@@ -3,3 +3,11 @@
     padding-right: 30%;
     padding-top: 7%;
 }
+
+.cs {
+    background-image: url("src\assets\image\logo.jpeg");
+}
+
+.image-fondo {
+    background-image: url("src\assets\image\ar.png");
+}

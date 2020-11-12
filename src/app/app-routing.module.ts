@@ -4,7 +4,11 @@ import {LoginComponent} from './components/Login/login.component';
 import { DashboardComponent } from './components/pages/dashboard/dashboard.component';
 import { MobiliarioComponent } from './components/pages/mobiliario/mobiliario.component';
 import { HardwareComponent } from './components/pages/hardware/hardware.component';
-
+import { ComunicacionComponent } from './components/pages/comunicacion/comunicacion.component';
+import { AccesoriosComponent } from './components/pages/acccesorios/accesorios.component';
+import { LimpiezaComponent } from './components/pages/limpieza/limpieza.component';
+import { PapeleriaComponent } from './components/pages/papeleria/papeleria.component';
+import { InsumosComponent } from './components/pages/insumos/insumos.component';
 
 
 const routes: Routes = [
@@ -12,6 +16,11 @@ const routes: Routes = [
   {path: 'Dashboard', component: DashboardComponent},
   {path: 'Mobiliario', component: MobiliarioComponent},
   {path: 'Hardware', component: HardwareComponent},
+  {path: 'Comunicacion', component: ComunicacionComponent},
+  {path: 'Accesorios', component: AccesoriosComponent},
+  {path: 'Limpieza', component: LimpiezaComponent},
+  {path: 'Papeleria', component: PapeleriaComponent},
+  {path: 'Insumos', component: InsumosComponent},
 ];
 
 @NgModule({

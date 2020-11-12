@@ -8,6 +8,11 @@ import { DashboardComponent } from './components/pages/dashboard/dashboard.compo
 import { NavbarComponent } from './components/pages/navbar/navbar.component';
 import { MobiliarioComponent } from './components/pages/mobiliario/mobiliario.component';
 import { HardwareComponent } from './components/pages/hardware/hardware.component';
+import { ComunicacionComponent } from './components/pages/comunicacion/comunicacion.component';
+import { AccesoriosComponent } from './components/pages/acccesorios/accesorios.component';
+import { LimpiezaComponent } from './components/pages/limpieza/limpieza.component';
+import { PapeleriaComponent } from './components/pages/papeleria/papeleria.component';
+import { InsumosComponent } from './components/pages/insumos/insumos.component';
 
 
 import { ChartsModule } from 'ng2-charts';
@@ -23,6 +28,11 @@ import { ChartsModule } from 'ng2-charts';
     NavbarComponent,
     MobiliarioComponent,
     HardwareComponent,
+    ComunicacionComponent,
+    AccesoriosComponent,
+    LimpiezaComponent,
+    PapeleriaComponent,
+    InsumosComponent,
   ],
   imports: [
     BrowserModule,
