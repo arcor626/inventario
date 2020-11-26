@@ -1,3 +1,14 @@
 .cs {
     background-image: url("src\assets\image\cs.jpeg");
 }
+
+.encabezado {
+    color: black;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.paddings {
+    padding-left: 45%;
+    padding-right: 55%;
+}

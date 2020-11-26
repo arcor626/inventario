@@ -1,0 +1,140 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+    <mat-toolbar class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+            <mat-nav-list>
+                <div class="btn-group">
+                    <button type="button" class=" form-control btn dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Accesorios
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Accesorios']">Tabla de Accesorios</a>
+
+                        <div class="dropdown-divider"></div>
+                        <a href="# " class="float-right negro " data-target="#recuperarContraseña " data-toggle="modal" data-whatever="@mdo">Agreagar accesorios</a>
+
+                    </div>
+                </div>
+
+
+                <br><br>
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Mobiliario
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Mobiliario']">Tabla de mobiliario</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar Mobiliario</p>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Comunicacion
+                  </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Comunicacion']">Tabla de comunicacion</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar comunicacion</p>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Hardware
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Hardware']">Tabla de hardware</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar hardware</p>
+                    </div>
+                </div>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+</div>
+
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+<!--Modal agregar Accesorios-->
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="recuperarContraseña" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bgCorp">
+                <a></a>
+                <h2 id="exampleModalLabel">
+                    Accesorios
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Número de identificación</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Número de serie</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Bien o Servicio Proporcionado</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Especificaciones	</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Proveedor</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Encargado</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Fecha de compra</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Fecha de Asignación (salida)	</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Área</label>
+                        <input type="text" class="form-control" id="nombre" />
+
+                        <label for="recipient-name" class="col-form-label">Comentarios</label>
+                        <input type="text" class="form-control" id="nombre" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn estilosBotonesHover estilosBotones">
+Enviar
+</button>
+
+            </div>
+        </div>
+    </div>
+</div>

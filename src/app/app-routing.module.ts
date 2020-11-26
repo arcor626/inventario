@@ -9,7 +9,7 @@ import { AccesoriosComponent } from './components/pages/acccesorios/accesorios.c
 import { LimpiezaComponent } from './components/pages/limpieza/limpieza.component';
 import { PapeleriaComponent } from './components/pages/papeleria/papeleria.component';
 import { InsumosComponent } from './components/pages/insumos/insumos.component';
-
+import { SidenavComponent } from './components/pages/sidenav/sidenav.component';
 
 const routes: Routes = [
   {path: 'Login', component: LoginComponent},
@@ -21,7 +21,11 @@ const routes: Routes = [
   {path: 'Limpieza', component: LimpiezaComponent},
   {path: 'Papeleria', component: PapeleriaComponent},
   {path: 'Insumos', component: InsumosComponent},
-];
+  {path: 'Side', component: SidenavComponent},
+
+  {path: '**', pathMatch: 'full', redirectTo: 'Login'}
+
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
