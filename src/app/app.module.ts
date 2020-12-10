@@ -10,6 +10,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 import {HttpClient, HttpClientJsonpModule, HttpClientModule} from '@angular/common/http';
 
 // componentes
@@ -67,6 +69,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LayoutModule,
     MatSliderModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

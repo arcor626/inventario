@@ -20,7 +20,7 @@
                         <a [routerLink]="['/Accesorios']">Tabla de Accesorios</a>
 
                         <div class="dropdown-divider"></div>
-                        <a href="# " class="float-right negro " data-target="#recuperarContraseña " data-toggle="modal" data-whatever="@mdo">Agreagar accesorios</a>
+                        <a href="# " class="float-right negro " data-target="#accesorioModal " data-toggle="modal" data-whatever="@mdo">Agreagar accesorios</a>
 
                     </div>
                 </div>
@@ -64,6 +64,45 @@
                         <p>Agregar hardware</p>
                     </div>
                 </div>
+                <br><br>
+
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Papeleria
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Papeleria']">Tabla de papeleria</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar papeleria</p>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Limpieza
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Limpieza']">Tabla de limpieza</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar limpieza</p>
+                    </div>
+                </div>
+                <br><br>
+
+                <div class="btn-group">
+
+                    <button type="button" class="form-control btn  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Insumos
+                    </button>
+                    <div class="dropdown-menu">
+                        <a [routerLink]="['/Insumos']">Tabla de insumos</a>
+                        <div class="dropdown-divider"></div>
+                        <p>Agregar insumo</p>
+                    </div>
+                </div>
 
             </mat-nav-list>
         </mat-sidenav>
@@ -80,61 +119,17 @@
 
 <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
 
-<!--Modal agregar Accesorios-->
-
-<div class="modal fade" data-backdrop="static" data-keyboard="false" id="recuperarContraseña" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<!-- Modal Proveedor -->
+<div class="modal animated fadeIn" tabindex="-1" role="dialog" id="accesorioModal">
+    <div class="modal-dialog " role="document">
         <div class="modal-content">
-            <div class="modal-header bgCorp">
-                <a></a>
-                <h2 id="exampleModalLabel">
-                    Accesorios
-                </h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
+            <div class="modal-header">
+                <h3 class="modal-title center">Registrar nuevo proveedor</h3>
             </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Número de identificación</label>
-                        <input type="text" class="form-control" id="nombre" />
+            <!-- Envio formulario -->
+            <!-- <form ngNativeValidate [formGroup]="formAccesorio" class="form-horizontal form-material" (ngSubmit)="crearAccesorio()" autocomplete="off">
 
-                        <label for="recipient-name" class="col-form-label">Número de serie</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Bien o Servicio Proporcionado</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Especificaciones	</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Proveedor</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Encargado</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Fecha de compra</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Fecha de Asignación (salida)	</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Área</label>
-                        <input type="text" class="form-control" id="nombre" />
-
-                        <label for="recipient-name" class="col-form-label">Comentarios</label>
-                        <input type="text" class="form-control" id="nombre" />
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn estilosBotonesHover estilosBotones">
-Enviar
-</button>
-
-            </div>
+            </form> -->
         </div>
     </div>
 </div>

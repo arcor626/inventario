@@ -8,3 +8,13 @@
     padding-left: 45%;
     padding-right: 55%;
 }
+
+.custom-pagination ::ng-deep .ngx-pagination .current {
+    background: black;
+}
+
+.pp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

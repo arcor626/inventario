@@ -1,5 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Form, FormGroup, NgForm } from '@angular/forms';
+import { AccesorioService } from 'src/app/services/accesorios/accesorio.service';
+
 
 @Component({
   selector: 'app-sidenav',
@@ -17,7 +20,10 @@ export class SidenavComponent implements OnInit {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, 
+    private _acceService: AccesorioService
+    
+    ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -32,4 +38,13 @@ export class SidenavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  formAccesorio : FormGroup;
+
+
+  crearAccesorio(){
+
+    console.log("me has presionado");
+    
+  }
 }

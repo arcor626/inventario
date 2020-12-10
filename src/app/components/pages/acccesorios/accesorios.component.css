@@ -5,10 +5,15 @@
 .encabezado {
     color: black;
     font-size: 30px;
-    padding-top: 5px;
+    padding-top: 1px;
 }
 
-.paddings {
-    padding-left: 45%;
-    padding-right: 55%;
+.pp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-pagination ::ng-deep .ngx-pagination .current {
+    background: black;
 }

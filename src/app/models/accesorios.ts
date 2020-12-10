@@ -1,12 +1,12 @@
 export class Accesorio{
-    id_accesorio : String;
-    acc_num_serie: String;
-    fk_id_servicio: String;
-    acc_especificaciones: String;
-    fk_id_proveedor:String;
-    fk_id_encargado: String;
-    acc_fecha_compra: String;
-    acc_fecha_asignacion:String;
-    fk_id_area: String;
-    acc_comentarios: String;
+    id_accesorio : string;
+    acc_num_serie: string;
+    fk_id_servicio: string;
+    acc_especificaciones: string;
+    fk_id_proveedor:string;
+    fk_id_encargado: string;
+    acc_fecha_compra: string;
+    acc_fecha_asignacion:string;
+    fk_id_area: string;
+    acc_comentarios: string;
 }
