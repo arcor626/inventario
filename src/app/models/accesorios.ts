@@ -9,4 +9,5 @@ export class Accesorio{
     acc_fecha_asignacion:string;
     fk_id_area: string;
     acc_comentarios: string;
+    acc_status: string;
 }
