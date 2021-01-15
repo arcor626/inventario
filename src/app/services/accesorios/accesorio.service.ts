@@ -16,7 +16,7 @@ export class AccesorioService {
   crearAccesorio(accesorio: Accesorio){
     return this.http.post(URL_SERVICIOS + 'accesorios/', accesorio).pipe(
       map((resp: any) => {
-        console.log(resp);
+        // console.log(resp);
         if(!resp){
           Swal.fire(
             'Error al crear el accesorio',
@@ -42,7 +42,7 @@ export class AccesorioService {
 
     return this.http.get(URL_SERVICIOS + 'accesorios/').pipe(
       map((resp: any) => {
-        console.log(resp.accesorios);
+        // console.log(resp.accesorios);
         
         return resp.accesorios;
       })
@@ -52,7 +52,7 @@ export class AccesorioService {
   // tslint:disable-next-line: typedef
   obtenAccesorioUnico(id: string){
     return this.http.get(URL_SERVICIOS + 'accesorios/' + id).pipe(
-      map((resp: any) => {
+      map((resp: any) => {        
 
         return resp.accesorio;
       })
@@ -76,9 +76,7 @@ export class AccesorioService {
   actualizaAccesorio(acce: Accesorio){
     return this.http.put(URL_SERVICIOS + 'accesorios/' + acce.id_accesorio, acce).pipe(
       map((resp: any) => {
-        Swal.fire(
-          "Accesorio actualizado", acce.id_accesorio, "success"
-        )
+        Swal.fire("Accesorio actualizado", acce.id_accesorio, "success");
         return  true;
       })
     );

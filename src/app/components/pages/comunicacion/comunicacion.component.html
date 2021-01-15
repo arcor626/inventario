@@ -1,5 +1,7 @@
 <h1 class="encabezado pp">Comunicacion</h1>
 
+<a href="# " class="float-right negro " data-target="#addCom" data-toggle="modal" data-whatever="@mdo">Agregar nuevo accesorio</a>
+
 
 <div class="table-responsive">
     <table class="table">
@@ -33,13 +35,13 @@
               </svg></button></td>
                 <td>{{comunicacion.id_componente}}</td>
                 <td>{{comunicacion.comp_num_serie}}</td>
-                <td>{{comunicacion.fk_id_servicio}}</td>
+                <td>{{comunicacion.serv_nombre}}</td>
                 <td>{{comunicacion.comp_especificaciones}}</td>
-                <td>{{comunicacion.fk_id_proveedor}}</td>
-                <td>{{comunicacion.fk_id_encargado}}</td>
+                <td>{{comunicacion.nombre_proveedor}}</td>
+                <td>{{comunicacion.nombre_encargado}}</td>
                 <td>{{comunicacion.comp_fecha_compra}}</td>
                 <td>{{comunicacion.comp_fecha_asignacion}}</td>
-                <td>{{comunicacion.fk_id_area}}</td>
+                <td>{{comunicacion.area_nombre}}</td>
                 <td>{{comunicacion.comp_comentarios}}</td>
             </tr>
 
@@ -47,4 +49,161 @@
     </table>
     <pagination-controls (pageChange)="page = $event" previousLabel="«" nextLabel="»" class="color" class="custom-pagination pp"></pagination-controls>
 
+</div>
+
+<!-- modal agregar accesorio -->
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addCom" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bgCorp">
+                <a></a>
+                <h2 id="exampleModalLabel">
+                    Agregar accesorio
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="crearComunicacion(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ingresa el ID</label>
+                        <input type="text" class="form-control" id="id_accesorio" name="id_accesorio" [(ngModel)]="nuevaComunicacion.id_componente" />
+                        <label for="recipient-name" class="col-form-label">Ingresa numero de serie</label>
+                        <input type="text" class="form-control" id="numero_serie" name="numero_serie" [(ngModel)]="nuevaComunicacion.comp_num_serie" />
+                        <label for="recipient-name" class="col-form-label">Selecciona el servicio</label>
+                        <select (change)="servicioSeleccionado($event.target.value)" class="custom-select" id="inputGroupSelect01">
+                            <option selected>Selecciona un servicio...</option>
+
+                            <option *ngFor="let servicio of servicios" 
+                                [value]="servicio.id_servicio">{{servicio.serv_nombre}}
+                            </option>
+                           
+                        </select>
+                        <a href="# " class="float-right negro " data-target="#addServ" data-toggle="modal" data-whatever="@mdo">Agregar nuevo servicio</a>
+
+                        <!-- <input type="text" class="form-control" id="id_servicio" name="id_servicio" [(ngModel)]="nuevoAccesorio.fk_id_servicio" /> -->
+                        <label for="recipient-name" class="col-form-label">Ingrese especificaciones </label>
+                        <input type="text" class="form-control" id="especificaciones" name="especificaciones" [(ngModel)]="nuevaComunicacion.comp_especificaciones" />
+                        <label for="recipient-name" class="col-form-label">Ingrese proveedor</label>
+                        <select (change)="proveedorSeleccionado($event.target.value)" class="custom-select" id="inputGroupSelect02">
+                            <option selected>Selecciona un proveedor...</option>
+
+                            <option *ngFor="let prove of proveedor" value="{{prove.id_proveedor}}" >{{prove.nombre_proveedor}}</option>
+                           
+                          </select>
+                        <a href="# " class="float-right negro " data-target="#addProve" data-toggle="modal" data-whatever="@mdo">Agregar nuevo proveedor</a>
+
+                        <!-- <input type="text" class="form-control" id="provedor" name="provedor" [(ngModel)]="nuevoAccesorio.fk_id_proveedor" /> -->
+                        <label for="recipient-name" class="col-form-label">Ingrese su encargado</label>
+                        <select (change)="encargadoSeleccionado($event.target.value)" class="custom-select" id="inputGroupSelect03">
+                            <option selected>Selecciona un encargado...</option>
+
+                            <option *ngFor="let per of personal " value ="{{per.id_personal}}" >{{per.personal_nombre}} {{per.personal_apellidos}}</option>
+                           
+                          </select>
+                        <!-- <input type="text" class="form-control" id="encargado" name="encargado" [(ngModel)]="nuevoAccesorio.fk_id_encargado" /> -->
+                        <label for="recipient-name" class="col-form-label">Ingrese la fecha de compra</label>
+                        <input type="date" class="form-control" id="fecha_compra" name="fecha_compra" [(ngModel)]="nuevaComunicacion.comp_fecha_compra" />
+                        <label for="recipient-name" class="col-form-label">Ingrese la fecha de asignacion</label>
+                        <input type="date" class="form-control" id="fecha_asignacion" name="fecha_asignacion" [(ngModel)]="nuevaComunicacion.comp_fecha_asignacion" />
+                        <label for="recipient-name" class="col-form-label">Ingrese el id de area </label>
+                        <select (change)="areaSeleccionada($event.target.value)" class="custom-select" id="inputGroupSelect04">
+                            <option selected>Selecciona un area...</option>
+
+                            <option *ngFor="let are of areas" value="{{are.id_area}}" >{{are.area_nombre}}</option>
+                           
+                          </select>
+                        <!-- <input type="text" class="form-control" id="id_area" name="id_area" [(ngModel)]="nuevoAccesorio.fk_id_area" /> -->
+                        <label for="recipient-name" class="col-form-label">Ingrese comentarios</label>
+                        <input type="text" class="form-control" id="comentarios" name="comentarios" [(ngModel)]="nuevaComunicacion.comp_comentarios" />
+
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn estilosBotonesHover estilosBotones">
+                                Enviar
+                            </button>
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- modal crear servicio -->
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addServ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bgCorp">
+                <a></a>
+                <h2 id="exampleModalLabel">
+                    Agregar Servicio
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="crearServicio(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ingresa el servicio</label>
+                        <input type="text" class="form-control" id="serv_nombre" name="serv_nombre" [(ngModel)]="nuevoServicio.serv_nombre" />
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn estilosBotonesHover estilosBotones">
+                                Enviar
+                            </button>
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- modal crear proveedor -->
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="addProve" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bgCorp">
+                <a></a>
+                <h2 id="exampleModalLabel">
+                    Agregar Proveedor
+                </h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="crearProveedor(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Ingresa el proveedor</label>
+                        <input type="text" class="form-control" id="nombre_proveedor" name="nombre_proveedor" [(ngModel)]="nuevoProveedor.nombre_proveedor" />
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn estilosBotonesHover estilosBotones">
+                                Enviar
+                            </button>
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
 </div>

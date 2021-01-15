@@ -10,6 +10,7 @@ import { LimpiezaComponent } from './components/pages/limpieza/limpieza.componen
 import { PapeleriaComponent } from './components/pages/papeleria/papeleria.component';
 import { InsumosComponent } from './components/pages/insumos/insumos.component';
 import { SidenavComponent } from './components/pages/sidenav/sidenav.component';
+import { PersonalComponent } from './components/pages/personal/personal.component';
 
 const routes: Routes = [
   {path: 'Login', component: LoginComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'Papeleria', component: PapeleriaComponent},
   {path: 'Insumos', component: InsumosComponent},
   {path: 'Side', component: SidenavComponent},
+  {path: 'Personal', component: PersonalComponent},
 
   {path: '**', pathMatch: 'full', redirectTo: 'Login'}
 

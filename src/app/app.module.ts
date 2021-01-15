@@ -30,6 +30,7 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { SidenavComponent } from './components/pages/sidenav/sidenav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PersonalComponent } from './components/pages/personal/personal.component';
 
 
 
@@ -52,6 +53,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PapeleriaComponent,
     InsumosComponent,
     SidenavComponent,
+    PersonalComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,4 +8,5 @@ export class Mobiliario{
     mob_fecha_asignacion:string;
     fk_id_area: string;
     mob_comentarios: string;
+    mob_status: string;
 }

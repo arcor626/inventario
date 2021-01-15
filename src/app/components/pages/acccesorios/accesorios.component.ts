@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+import {NgForm } from '@angular/forms';
 import { Accesorio } from 'src/app/models/accesorios';
 import {Servicios} from 'src/app/models/servicios';
 import Swal from 'sweetalert2';
@@ -32,6 +32,9 @@ import { Areas } from '../../../models/areas';
     public page: number;
      nuevoAccesorio = new Accesorio();
      nuevoServicio = new Servicios();
+     nuevoProveedor = new Proveedor();
+    editAccesorio = new Accesorio();
+
     // tslint:disable-next-line: variable-name
     constructor( private _acceService: AccesorioService,
       private _servService: ServiciosService,
@@ -48,37 +51,42 @@ import { Areas } from '../../../models/areas';
     this.cargarAreas();
   }
 
+  servicioSeleccionado(id: number){
+    this.nuevoAccesorio.fk_id_servicio = id.toString();   
+    this.editAccesorio.fk_id_servicio = id.toString();  
+  }
+
+  proveedorSeleccionado(id: number){
+    this.nuevoAccesorio.fk_id_proveedor = id.toString(); 
+    this.editAccesorio.fk_id_proveedor = id.toString();   
+
+  }
+
+  encargadoSeleccionado(id: number){
+    this.nuevoAccesorio.fk_id_encargado = id.toString();   
+    this.editAccesorio.fk_id_encargado = id.toString();   
+
+  }
+
+  areaSeleccionada(id: number){
+    this.nuevoAccesorio.fk_id_area = id.toString(); 
+    this.editAccesorio.fk_id_area = id.toString(); 
+
+  }
+
+  statusSeleccionado(id: number){
+    this.editAccesorio.acc_status = id.toString();  
+  }
 
   crearAccesorio(form : NgForm){
-
-    
-
     if(form.invalid){
-      console.log("Formularo invalido");
-      
-    }
-    
-    console.log(this.nuevoAccesorio);
-    
-    // this._acceService.crearAccesorio(this.nuevoAccesorio).subscribe(
-    //   resultado =>{
-    //     console.log(resultado);
-        // if(!resultado){
-        //   Swal.fire(
-        //     'Error al crear el accesorio',
-        //     'You clicked the button!',
-        //     'error'
-        //   )
-        // }else{
-        //   Swal.fire(
-        //     'Se creo accesorio correctamente',
-        //     'You clicked the button!',
-        //     'success'
-        //   )
-        // }
-      // }
-
-    // )
+      console.log("Formularo invalido");    
+    } 
+    // console.log(this.nuevoAccesorio);   
+    this._acceService.crearAccesorio(this.nuevoAccesorio).subscribe(
+      resultado =>{      
+      }
+      );  
   }
 
   crearServicio(form : NgForm){
@@ -88,6 +96,20 @@ import { Areas } from '../../../models/areas';
     }
     
     this._servService.crearServicio(this.nuevoServicio).subscribe(
+      resultado =>{
+        console.log(resultado);
+      }
+
+    )
+  }
+
+  crearProveedor(form : NgForm){
+    if(form.invalid){
+      console.log("Formularo invalido");
+      
+    }
+    
+    this._provService.crearProveedor(this.nuevoProveedor).subscribe(
       resultado =>{
         console.log(resultado);
       }
@@ -164,12 +186,33 @@ import { Areas } from '../../../models/areas';
   }
 
   // tslint:disable-next-line: typedef
-  actualizarAccesorio(accesorio: Accesorio){
+  actualizarAccesorio(form : NgForm){
 
-
-    this._acceService.actualizaAccesorio(accesorio).subscribe(  () => this.cargarAccesorios());
+    if(form.invalid){
+      console.log("Formularo invalido");
+      
+    }
+  this._acceService.actualizaAccesorio(this.editAccesorio).subscribe(  () => this.cargarAccesorios());
     }
 
+
+
+
+    obtenerAcceUni(id : string){
+      
+      this._acceService.obtenAccesorioUnico(id).subscribe(
+
+        resultado =>{
+          this.editAccesorio = resultado;
+        }
+      );
+      }
+
+      
+      
+
   }
+
+ 
 
 
